@@ -11,16 +11,16 @@ class Request(BaseModel):
 
     # usernameが空欄でないことをチェック
     @validator("username")
-    def validate_empty_fields(cls, value):
+    def validate_empty_username(cls, value):
         if not value:
-            raise ValueError("Field cannot be empty")
+            raise ValueError("Username cannot be empty")
         return value
 
-    # mailが空欄でないことをチェック
-    @validator("email")
-    def validate_empty_fields(cls, value):
+    # emailが空欄でないことをチェック
+    @validator("email", pre=True)
+    def validate_empty_email(cls, value):
         if not value:
-            raise ValueError("Field cannot be empty")
+            raise ValueError("Email cannot be empty")
         return value
 
     # メールアドレスの形式を確認
@@ -33,23 +33,23 @@ class Request(BaseModel):
 
     # password1が空欄でないことをチェック
     @validator("password1")
-    def validate_empty_passwords(cls, password):
+    def validate_empty_password1(cls, password):
         if not password:
-            raise ValueError("password cannot be empty")
+            raise ValueError("Password cannot be empty")
         return password
 
     # password2が空欄でないことをチェック
-    @validator("password2")
-    def validate_empty_passwords(cls, password):
+    @validator("password2", pre=True)
+    def validate_empty_password2(cls, password):
         if not password:
-            raise ValueError("password cannot be empty")
+            raise ValueError("Password cannot be empty")
         return password
 
     # password1とpassword2が不一致のチェック
     @validator("password2")
-    def validate_passwords(cls, password2, values):
+    def validate_passwords_match(cls, password2, values):
         if "password1" in values and password2 != values["password1"]:
-            raise ValueError("passwords do not match")
+            raise ValueError("Passwords do not match")
         return password2
 
 
@@ -62,7 +62,7 @@ RequestExample = {
 
 
 class Data(BaseModel):
-    uuid: str = Field(..., title="uuid", description="一意のid")
+    uid: str = Field(..., title="uuid", description="一意のid")
     username: str = Field(..., title="ユーザー名", description="ユーザー名")
 
 
@@ -88,7 +88,7 @@ ResponseExamples = {
                         "value": {
                             "status": 1,
                             "data": {
-                                "uuid": "550e8400-e29b-41d4-a716-446655440000",
+                                "uid": "550e8400-e29b-41d4-a716-446655440000",
                                 "username": "hogehoge",
                             },
                         },

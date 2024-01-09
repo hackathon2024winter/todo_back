@@ -3,3 +3,6 @@ sqlalchemy
 pymysql
 alembic
 uvicorn
+passlib
+databases
+aiomysql

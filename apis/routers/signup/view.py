@@ -5,6 +5,7 @@ from ..endpoints import Signup as ep
 
 router = APIRouter()
 
+
 @router.post(
     ep.endpoint,
     summary=ep.summary,
@@ -15,7 +16,6 @@ router = APIRouter()
     response_model_exclude_unset=True,
     response_model_exclude_none=True,
 )
-def get_payloads(body: Request = RequestExample):    
-    res = Model().exec(body)
-
+async def get_payloads(body: Request = RequestExample):
+    res = await Model().exec(body)
     return res

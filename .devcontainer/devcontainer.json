@@ -1,7 +1,7 @@
 {
-  "name": "base_auth",
+  "name": "fastapi_todo",
   "dockerComposeFile": "../docker-compose.yml",
-  "service": "authserver",
+  "service": "fastapi",
   "workspaceFolder": "/home/appuser/devcon",
   "shutdownAction": "stopCompose",
   "remoteUser": "appuser",

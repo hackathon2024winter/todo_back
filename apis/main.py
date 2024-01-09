@@ -1,5 +1,7 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from apis.services.authfunctions import database
 from .routers.signup import view as view1
 
 app = FastAPI(docs_url="/docs", redoc_url="/redoc")
@@ -14,6 +16,27 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+# 起動時・終了時にデータベースと接続
+@asynccontextmanager
+async def app_lifespan(app):
+    await startup_logic()
+    yield
+    await shutdown_logic()
+
+
+async def startup_logic():
+    print("Connecting to the database")
+    await database.connect()
+
+
+async def shutdown_logic():
+    print("Disconnecting from the database")
+    await database.disconnect()
+
+
+app.router.lifespan_context = app_lifespan
 
 for v in [view1]:
     app.include_router(v.router)
