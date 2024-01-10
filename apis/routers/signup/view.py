@@ -6,6 +6,7 @@ from ..endpoints import Signup as ep
 router = APIRouter()
 
 
+# tokenなし・BaseModelのRequestとResponse
 @router.post(
     ep.endpoint,
     summary=ep.summary,

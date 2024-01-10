@@ -15,12 +15,5 @@ router = APIRouter()
     status_code=status.HTTP_200_OK,
 )
 async def get_payloads(token: TokenData = Depends(get_current_user)):
-    jsonres = await Model().exec(token)
-    return jsonres
-
-# async def get_payloads(token: str = Depends(token_scheme)):
-#     jsonres = await Model().exec(token)
-#     return jsonres
-
-
-# 
+    json_res = await Model().exec(token)
+    return json_res

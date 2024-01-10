@@ -1,4 +1,5 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+
 
 class TokenData(BaseModel):
-   uid: str
+    data: str = Field(..., title="デコードされたtoken", description="cookieから取得したtoken一式")

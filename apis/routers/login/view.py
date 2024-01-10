@@ -15,5 +15,5 @@ router = APIRouter()
     status_code=status.HTTP_200_OK,
 )
 async def get_payloads(body: Request = RequestExample):
-    jsonres = await Model().exec(body)
-    return jsonres
+    json_res = await Model().exec(body)
+    return json_res
