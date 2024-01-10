@@ -3,6 +3,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from apis.services.authfunctions import database
 from .routers.signup import view as view1
+from .routers.login import view as view2
+from .routers.signout import view as view3
 
 app = FastAPI(docs_url="/docs", redoc_url="/redoc")
 
@@ -38,5 +40,5 @@ async def shutdown_logic():
 
 app.router.lifespan_context = app_lifespan
 
-for v in [view1]:
+for v in [view1, view2, view3]:
     app.include_router(v.router)

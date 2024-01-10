@@ -8,3 +8,8 @@ class Login:
     endpoint = "/login"
     summary = "ログイン"
     description = """ログイン"""
+
+class Signout:
+    endpoint = "/signout"
+    summary = "サインアウト"
+    description = """サインアウト"""

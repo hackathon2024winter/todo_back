@@ -69,11 +69,11 @@ class Data(BaseModel):
 class Response(BaseModel):
     status: int = Field(
         ...,
-        title="返却値ステータス",
-        description="返却値が存在する場合は1,検索基準日に未来が指定されたときなどが原因でデータが存在しない場合は0が返されます。",
+        title="ステータス",
+        description="正しい場合1、不正の場合0",
     )
     data: Optional[Data] = Field(
-        None, title="実績データ", description="実績データ。データが存在しない場合はこのフィールドは存在しません。"
+        None, title="登録したuser", description="登録したuserのuidとusername"
     )
 
 
