@@ -93,17 +93,20 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
         )
 
     try:
+        # 渡されたtokenをデコード
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         uid: str = payload.get("sub")
 
         if uid is None:
             raise credential_exception
         
+        # tokenのuidを取得
         token_data = TokenData(uid=uid)
 
     except JWTError:
         raise credential_exception
-
+    
+    # uidに見合うuserをデータベースから取得
     user = await get_user_by_uid(uid=token_data.uid)
     if user is None:
         raise credential_exception

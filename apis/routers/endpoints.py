@@ -13,3 +13,8 @@ class Signout:
     endpoint = "/signout"
     summary = "サインアウト"
     description = """サインアウト"""
+
+class AddChannel:
+    endpoint = "/addchannel"
+    summary = "掲示板の追加"
+    description = """掲示板の追加"""
