@@ -1,17 +1,15 @@
 from fastapi import status, HTTPException
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
-from apis.services.authfunctions import get_current_user
-
+from apis.services.authfunctions import select_by_email
+from .schema import TokenData
 
 class Model(BaseModel):
-    async def exec(self, token: str):
-        user = await get_current_user(token)
-        if not user:
+    async def exec(self, token: TokenData):        
+        if not token:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid refresh token"
             )
-
         content = {"detail": "Access token removed"}
         response = JSONResponse(content=content)
         response.set_cookie(

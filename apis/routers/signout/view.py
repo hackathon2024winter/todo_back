@@ -1,12 +1,10 @@
 from fastapi import APIRouter, Depends, status
-from apis.services.oauth2 import OAuth2RefreshTokenBearer
+from apis.services.authfunctions import get_current_user
+from .schema import TokenData
 from .model import Model
 from ..endpoints import Signout as ep
 
 router = APIRouter()
-# Refresh Token用のスキーマ
-token_scheme = OAuth2RefreshTokenBearer()
-
 
 # cookieをsetするJSONResponseはPydanticのBaseModelと共存できないので、response_modelを使えない。
 # またrequest_modelも事前にリクエストヘッダからcookieを読むので、使わない。
@@ -16,6 +14,13 @@ token_scheme = OAuth2RefreshTokenBearer()
     description=ep.description,
     status_code=status.HTTP_200_OK,
 )
-async def get_payloads(token: str = Depends(token_scheme)):
+async def get_payloads(token: TokenData = Depends(get_current_user)):
     jsonres = await Model().exec(token)
     return jsonres
+
+# async def get_payloads(token: str = Depends(token_scheme)):
+#     jsonres = await Model().exec(token)
+#     return jsonres
+
+
+# 
