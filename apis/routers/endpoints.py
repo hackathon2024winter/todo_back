@@ -23,3 +23,8 @@ class AddMessage:
     endpoint="/addmessage"
     summary="メッセージの追加"
     description="""メッセージの追加"""
+
+class DelMessage:
+    endpoint="/delmessage"
+    summary="メッセージの削除"
+    description="""メッセージの削除"""

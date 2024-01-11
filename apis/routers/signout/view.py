@@ -8,7 +8,7 @@ router = APIRouter()
 
 # cookieをsetするJSONResponseはPydanticのBaseModelと共存できないので、response_modelを使えない。
 # またrequest_modelも事前にリクエストヘッダからcookieを読むので、使わない。
-@router.post(
+@router.get(
     ep.endpoint,
     summary=ep.summary,
     description=ep.description,
