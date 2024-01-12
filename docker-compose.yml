@@ -36,7 +36,7 @@ services:
     ports:
       - ${PORT_MYSQL_FAST}:${PORT_MYSQL_FAST}
 
-  pma_auth:
+  pma_fast:
     build:
       context: ./phpmyadmin
       args:
