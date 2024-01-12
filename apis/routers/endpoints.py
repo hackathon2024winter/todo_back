@@ -33,3 +33,8 @@ class DelChannel:
     endpoint="/delchannel"
     summary="掲示板の削除"
     description="""掲示板の削除"""
+
+class GetChannels:
+    endpoint="/getchannels"
+    summary="掲示板の取得"
+    description="""掲示板の取得"""
