@@ -16,7 +16,9 @@ class Model(BaseModel):
 
         # 特定のIDを持つメッセージを選択するクエリ
         query = Message.__table__.select().where(
-            and_(Message.id == body.id, Message.cid == body.cid)
+            and_(
+                Message.id == body.id, Message.cid == body.cid, Message.uid == token.uid
+            )
         )
 
         result = await database.fetch_one(query)
@@ -29,7 +31,9 @@ class Model(BaseModel):
 
         # レコードが存在する場合、削除するクエリ
         delete_query = Message.__table__.delete().where(
-            and_(Message.id == body.id, Message.cid == body.cid)
+            and_(
+                Message.id == body.id, Message.cid == body.cid, Message.uid == token.uid
+            )
         )
         await database.execute(delete_query)
 
