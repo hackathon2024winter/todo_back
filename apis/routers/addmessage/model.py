@@ -22,5 +22,5 @@ class Model(BaseModel):
         # テーブル更新
         await database.execute(query)
 
-        dt = Data(uid=token.uid,cid=body.cid,message=body.message)
+        dt = Data(uid=token.uid, cid=body.cid, message=body.message)
         return Response(status=1, data=dt)

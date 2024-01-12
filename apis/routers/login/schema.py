@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field, validator
 import re
 
+
 class Request(BaseModel):
     email: str = Field(
         ...,
@@ -19,6 +20,3 @@ class Request(BaseModel):
 
 
 RequestExample = {"email": "hoge@gmail.com", "password": "fugafuga"}
-
-
-

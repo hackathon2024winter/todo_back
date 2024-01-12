@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import Optional
 
+
 class TokenData(BaseModel):
     data: str = Field(..., title="デコードされたtoken", description="cookieから取得したtoken一式")
 
@@ -25,7 +26,9 @@ class Response(BaseModel):
         title="ステータス",
         description="正しい場合1、不正の場合0",
     )
-    data: Optional[Data] = Field(None, title="書き込んだメッセージ", description="作成者id、掲示板id、書き込み")
+    data: Optional[Data] = Field(
+        None, title="書き込んだメッセージ", description="作成者id、掲示板id、書き込み"
+    )
 
 
 ResponseExamples = {

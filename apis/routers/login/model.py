@@ -26,7 +26,6 @@ class Model(BaseModel):
         # token生成
         access_token = create_access_token(
             data={"sub": user.uid}, expires_delta=access_token_expires
-
         )
         # cookieをサーバーから操作するresponse生成
         response = JSONResponse(content={"token_type": "bearer"})
@@ -39,5 +38,5 @@ class Model(BaseModel):
             secure=False,
             # domain=".local.dev",
         )
-        # サーバーからcookieを操作 
+        # サーバーからcookieを操作
         return response
