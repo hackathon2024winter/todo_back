@@ -28,3 +28,8 @@ class DelMessage:
     endpoint="/delmessage"
     summary="メッセージの削除"
     description="""メッセージの削除"""
+
+class DelChannel:
+    endpoint="/delchannel"
+    summary="掲示板の削除"
+    description="""掲示板の削除"""
