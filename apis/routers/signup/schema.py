@@ -56,8 +56,8 @@ class Request(BaseModel):
 RequestExample = {
     "username": "hogehoge",
     "email": "hoge@gmail.com",
-    "password1": "fugafuga",
-    "password2": "fugafuga",
+    "password1": "hogehoge",
+    "password2": "hogehoge",
 }
 
 

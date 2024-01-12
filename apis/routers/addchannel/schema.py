@@ -11,7 +11,7 @@ class Request(BaseModel):
     abstract: str = Field(..., title="掲示板の説明", description="掲示板やチャットルームの説明")
 
 
-RequestExample = {"name": "ぼっち部屋", "abstract": "テストさんの孤独な部屋です"}
+RequestExample = {"name": "ぼっち部屋", "abstract": "hogeさんの孤独な部屋です"}
 
 
 class Data(BaseModel):

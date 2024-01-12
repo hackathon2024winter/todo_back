@@ -19,4 +19,4 @@ class Request(BaseModel):
         return email
 
 
-RequestExample = {"email": "hoge@gmail.com", "password": "fugafuga"}
+RequestExample = {"email": "hoge@gmail.com", "password": "hogehoge"}
