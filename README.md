@@ -1,3 +1,9 @@
+## 環境変数を収めた.env について
+
+- GitHub にパスワードや ID を公開することはできないので、.env というファイルに環境変数として保存する。
+- GitHub をクローンしても.env ファイルが無ければ動作しない。
+- .env は拡張子ではなく、Linux では先頭に.を置くと隠しファイルになる。
+
 ## alembic
 
 - alembic は declarative_base を継承するクラスをマイグレーションして env.py で指定したデータベースにテーブルを自動生成する。マイグレーションとは Python ファイルを設計図とし、データベースのテーブルを作成することを言う。データベースをゼロから作るのであれば、build.sh に一連の手続きを記載しているので、コンテナ消去・再生成で自動的にマイグレーションされる。
@@ -17,6 +23,8 @@
   6.面倒なら devcontainer から抜け、./docker_softclear.sh を実行してコンテナを完全削除し、server/models フォルダを更新して改めて docker-compose.yml を右クリック compose up で再構築すると良い。
 
 - dumpDB.sh で MySQL をバックアップし、restoreDB.sh で元に戻す。ただしテーブル構成が変わっていない事が条件。backup.sql を手動で修正すれば、不可能ではない。
+- dumpDB.sh の上にマウスカーソルを置き右クリック →Open in Integrated Terminal を選択 →CLI で./dumpDB.sh を実行するとデータベースが backup.sql にバックアップされる。
+- restoreDB.sh の上にマウスカーソルを置き右クリック →Open in Integrated Terminal を選択 →CLI で./restoreDB.sh を実行するとデータベースが backup.sql に基づいてレストアされる。
 
 ## docker コンテナ
 
@@ -33,4 +41,7 @@
 - python コンテナであれば requirements.txt、nodejs コンテナ(React、NextJS など)であれば package.json に導入するライブラリとバージョンが明記されるので、均質な開発環境を共有できる。
 - 入れるコンテナは.devcontainer フォルダの devcontainer.json の service で決定され、この service は docker-compose.yml の service が選択される。このプロジェクトの場合、fastapi コンテナに入れる。
 - 左下の><を左クリック →Reopen in Container で dev container に入れる。
-- 左下>< Dev Containerを左クリック→ Reopen Folder Locallyでdev container から出られる。
+- 左下>< Dev Container を左クリック → Reopen Folder Locally で dev container から出られる。
+- コンテナの内外でユーザー id とグループ id を一致させておく必要がある。異なっているとローカル環境に編集権限の無いファイルやフォルダが生成され、git の監視が乱れる場合がある。
+- ubuntu の場合、CLI で id と入力すると uid=1000(ユーザー名) gid=1000(グループ名)が表示され、.env の MY_UID と MY_GID と一致させている。
+- mac の場合、同じ id で確認でき、uid=501(ユーザー名) gid=20(グループ名)になる。.env の MY_UID と MY_GID を一致させるべきだが、docker コンテナは全て linux OS で、gid=20 は dialout に設定されているので、何らかの悪影響がある可能性がある。今の所、聞いたことは無いが・・・
