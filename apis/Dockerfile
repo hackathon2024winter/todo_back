@@ -1,5 +1,7 @@
 FROM python:3.9
 
+RUN apt-get update && apt-get install -y mariadb-client
+
 # 言語・地域情報
 RUN apt-get update && apt-get install -y sudo locales tree && \
   localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
