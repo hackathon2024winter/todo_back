@@ -3,3 +3,4 @@
 *.mako
 README
 alembic/versions
+alembic.ini
