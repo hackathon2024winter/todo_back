@@ -15,4 +15,4 @@ class Card(Base):
     name = Column(String(255), unique=True, nullable=False, index=True) #カード名
     position = Column(Integer(unsigned=True)) #カードの位置
     due_date = Column(Date, nullable=False) #期限
-    abstract = Column(String(255), nullable=True) #カードの説明
+    detail = Column(String(255), nullable=True) #カードの説明
