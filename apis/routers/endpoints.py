@@ -50,3 +50,9 @@ class GetMessages:
     endpoint = "/getmessages"
     summary = "メッセージの取得"
     description = """メッセージの取得"""
+
+
+class GetCards:
+    endpoint = "/getcards"
+    summary = "カードの取得"
+    description = """カードの取得"""
