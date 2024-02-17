@@ -1,1 +1,1 @@
-from . import base, user, channel, message
+from . import base, user, channel, message, card
