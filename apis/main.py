@@ -12,6 +12,7 @@ from .routers.delchannel import view as view7
 from .routers.getchannels import view as view8
 from .routers.getmessages import view as view9
 from .routers.getcards import view as view10
+from .routers.getcategories import view as view11
 
 app = FastAPI(docs_url="/docs", redoc_url="/redoc")
 
@@ -47,5 +48,5 @@ async def shutdown_logic():
 
 app.router.lifespan_context = app_lifespan
 
-for v in [view1, view2, view3, view4, view5, view6, view7, view8, view9, view10]:
+for v in [view1, view2, view3, view4, view5, view6, view7, view8, view9, view10, view11]:
     app.include_router(v.router)
