@@ -20,13 +20,14 @@ class Model(BaseModel):
         arry = []  # dataリストを初期化
         for card in result:
             dt = Data(
-                id=card.id,
-                category_id = card.category_id,
-                color_id = card.color_id,
-                name = card.name,
-                position = card.position,
+                card_id=card.card_id,
+                card_pos = card.card_pos,
+                col_id = card.col_id,
+                card_name = card.card_name,
+                input_date = card.input_date,
                 due_date = card.due_date,
-                detail = card.detail
+                color = card.color,
+                description = card.description
             )
             arry.append(dt)
         return Response(status=1, data=arry)
