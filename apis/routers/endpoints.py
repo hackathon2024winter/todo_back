@@ -68,3 +68,8 @@ class AddCard:
     endpoint = "/addcard"
     summary = "カードの追加"
     description = """カードの追加"""
+
+class AddCategory:
+    endpoint = "/addcategory"
+    summary = "カテゴリの追加"
+    description = """カテゴリの追加"""
