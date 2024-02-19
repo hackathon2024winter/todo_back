@@ -3,7 +3,7 @@ from fastapi import status, HTTPException
 from pydantic import BaseModel
 from .schema import Response, TokenData, Data
 from apis.services.authfunctions import database
-from apis.bases.card import Category
+from apis.bases.category import Category
 
 
 class Model(BaseModel):
@@ -19,7 +19,10 @@ class Model(BaseModel):
 
         arry = []  # dataリストを初期化
         for category in result:
+            # ここでisUserCreatedを設定する。
+            is_user_created = category.uid == token.uid
             dt = Data(
+                isUserCreated=is_user_created,
                 col_id = category.col_id,
                 col_pos = category.col_pos,
                 col_name = category.col_name,
