@@ -19,7 +19,10 @@ class Model(BaseModel):
 
         arry = []  # dataリストを初期化
         for card in result:
+            # ここでisUserCreatedを設定する。
+            is_user_created = card.uid == token.uid
             dt = Data(
+                isUserCreated=is_user_created,
                 card_id=card.card_id,
                 card_pos = card.card_pos,
                 col_id = card.col_id,
