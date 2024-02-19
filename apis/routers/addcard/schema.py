@@ -24,7 +24,7 @@ RequestExample = {
     "card_pos": 1,
     "col_id": "vTwmtekFyxmisAnwJeiDXAihRRKLvQ2kMyRb",
     "card_name": "中間発表資料を作成する",
-    "input_date": "2024-02-19",
+    "input_date": "2024-02-01",
     "due_date": "2024-02-19",
     "color": "color1",
     "description": "Canvaで編集する"

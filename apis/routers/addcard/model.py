@@ -13,7 +13,7 @@ class Model(BaseModel):
                 status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token"
             )
 
-        # Channelテーブルに挿入するクエリ作成
+        # Cardテーブルに挿入するクエリ作成
         query = Card.__table__.insert().values(
             card_id=body.card_id,
             card_pos=body.card_pos,

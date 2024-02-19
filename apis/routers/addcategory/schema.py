@@ -14,7 +14,12 @@ class Request(BaseModel):
     description: str = Field(None, title="カテゴリの説明", description="カテゴリの説明")
 
 
-RequestExample = {}
+RequestExample = {
+    "col_id": "vTwmtekFyxmisAnwJeiDXAihRRKLvQ2kMyRb",
+    "col_pos": 1,
+    "col_name": "未着手",
+    "description": "まだ手がつけられていないもの"
+}
 
 
 #作成したカテゴリの情報（カテゴリテーブルの要素の全て）を返す
