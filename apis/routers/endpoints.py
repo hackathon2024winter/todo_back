@@ -56,9 +56,15 @@ class GetCards:
     endpoint = "/getcards"
     summary = "カードの取得"
     description = """カードの取得"""
-    
-    
+
+
 class GetCategories:
     endpoint = "/getcategories"
     summary = "カテゴリの取得"
     description = """カテゴリの取得"""
+
+
+class AddCard:
+    endpoint = "/addcard"
+    summary = "カードの追加"
+    description = """カードの追加"""
