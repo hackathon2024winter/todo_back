@@ -1,3 +1,4 @@
+import os
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -16,7 +17,13 @@ from .routers.getcategories import view as view11
 from .routers.addcard import view as view12
 from .routers.addcategory import view as view13
 
-app = FastAPI(docs_url="/docs", redoc_url="/redoc")
+is_with_proxy = os.getenv("IS_WITH_PROXY")
+if is_with_proxy == "True":
+    # コンテナ単体の.envでは宣言せず、ルートの.envだけで宣言すると正しく読み込まれる。
+    app = FastAPI(root_path="/fastapi", docs_url="/docs", redoc_url="/redoc")
+else:
+    app = FastAPI(docs_url="/docs", redoc_url="/redoc")
+
 
 # AWSなどにデプロイしURLのドメインが確定したら指定する。
 # ブラウザからのリクエストはdockerコンテナのサービス名に基づくURLを名前解決できない。
