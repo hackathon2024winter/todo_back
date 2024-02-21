@@ -11,7 +11,7 @@ class Card(Base):
     card_pos = Column(Integer(unsigned=True))
     col_id = Column(String(36), ForeignKey(Category.col_id) ,nullable=False)
     uid = Column(String(36), ForeignKey(User.uid), nullable=False)
-    card_name = Column(String(255), unique=True, nullable=False, index=True)
+    card_name = Column(String(255), nullable=False, index=True)
     input_date = Column(Date, nullable=False)
     due_date = Column(Date, nullable=False)
     color = Column(String(10), nullable=False)
