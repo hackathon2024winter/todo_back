@@ -17,5 +17,5 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PARENT_REPO_TOKEN }} 
-          repository: 'hackathon2024winter/narra-belle'
-          event-type: 'submodule-updated'
+          repository: "hackathon2024winter/narra-belle"
+          event-type: "submodule-updated"
