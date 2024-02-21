@@ -15,7 +15,7 @@ class Request(BaseModel):
 
 
 RequestExample = {
-    "col_id": "vTwmtekFyxmisAnwJeiDXAihRRKLvQ2kMyRb",
+    "col_id": "7d2fc6b5-58be-6257-2b40-b0b848062a07",
     "col_pos": 1,
     "col_name": "未着手",
     "description": "まだ手がつけられていないもの"

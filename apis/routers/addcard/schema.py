@@ -20,13 +20,13 @@ class Request(BaseModel):
 
 
 RequestExample = {
-    "card_id": "3d9tbZoYUBFxXZpuXpB3DtMLdDf5o2rEaMT7",
+    "card_id": "61eae2b5-d109-a5e3-7a38-01970911cc12",
     "card_pos": 1,
-    "col_id": "vTwmtekFyxmisAnwJeiDXAihRRKLvQ2kMyRb",
+    "col_id": "7d2fc6b5-58be-6257-2b40-b0b848062a07",
     "card_name": "中間発表資料を作成する",
     "input_date": "2024-02-01",
     "due_date": "2024-02-19",
-    "color": "color1",
+    "color": "#e2b49a",
     "description": "Canvaで編集する"
 }
 

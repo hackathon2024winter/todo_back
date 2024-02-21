@@ -73,3 +73,8 @@ class AddCategory:
     endpoint = "/addcategory"
     summary = "カテゴリの追加"
     description = """カテゴリの追加"""
+
+class GetBoardView:
+    endpoint = "/getboardview"
+    summary = "ボード画面の情報取得"
+    description = """ボード画面の情報取得"""
