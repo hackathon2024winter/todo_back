@@ -76,5 +76,5 @@ class AddCategory:
 
 class GetBoardView:
     endpoint = "/getboardview"
-    summary = "ボード画面の情報取得"
-    description = """ボード画面の情報取得"""
+    summary = "ボード画面に表示するカードの情報取得"
+    description = """ボード画面に表示するカードの情報取得"""
