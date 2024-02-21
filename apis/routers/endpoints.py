@@ -73,3 +73,18 @@ class AddCategory:
     endpoint = "/addcategory"
     summary = "カテゴリの追加"
     description = """カテゴリの追加"""
+
+class GetBoardView:
+    endpoint = "/getboardview"
+    summary = "ボード画面に表示するカードの情報取得"
+    description = """ボード画面に表示するカードの情報取得"""
+    
+class UpdateCard:
+    endpoint = "/updatecard"
+    summary = "カード情報の更新"
+    description = """カード情報の更新"""
+    
+class GetBoardDetail:
+    endpoint = "/getboarddetail"
+    summary = "ボード画面に表示するカード情報(詳細含む)の取得"
+    description = """ボード画面に表示するカード情報(詳細含む)の取得"""

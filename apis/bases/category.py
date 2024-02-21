@@ -9,5 +9,5 @@ class Category(Base):
     col_id = Column(String(36), primary_key=True)
     col_pos = Column(Integer(unsigned=True))
     uid = Column(String(36), ForeignKey(User.uid), nullable=False)
-    col_name = Column(String(255), unique=True, nullable=False, index=True)
+    col_name = Column(String(255), nullable=False, index=True)
     description = Column(String(255), nullable=True)
