@@ -7,3 +7,4 @@ passlib
 databases
 aiomysql
 python-jose
+cryptography
