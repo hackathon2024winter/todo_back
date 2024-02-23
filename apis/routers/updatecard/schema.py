@@ -21,7 +21,7 @@ class Request(BaseModel):
 
 RequestExample = {
     "card_id": "61eae2b5-d109-a5e3-7a38-01970911cd14", #card_idの更新は想定しない
-    "card_pos": 2,
+    "card_pos": 1,
     "col_id": "7d2fc6b5-58be-6257-2b40-b0b848062a07", #col_idの更新は想定しない
     "card_name": "中間発表資料を作成する",
     "input_date": "2024-02-01",
