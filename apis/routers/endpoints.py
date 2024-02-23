@@ -88,3 +88,8 @@ class GetBoardDetail:
     endpoint = "/getboarddetail"
     summary = "ボード画面に表示するカード情報(詳細含む)の取得"
     description = """ボード画面に表示するカード情報(詳細含む)の取得"""
+    
+class DelCard:
+    endpoint = "/delcard"
+    summary = "カードの削除"
+    description = """カードの削除"""

@@ -19,6 +19,7 @@ from .routers.addcategory import view as view13
 from .routers.getboardview import view as view14
 from .routers.updatecard import view as view15
 from .routers.getboarddetail import view as view16
+from .routers.delcard import view as view17
 
 is_with_proxy = os.getenv("IS_WITH_PROXY")
 if is_with_proxy == "True":
@@ -60,5 +61,5 @@ async def shutdown_logic():
 
 app.router.lifespan_context = app_lifespan
 
-for v in [view1, view2, view3, view4, view5, view6, view7, view8, view9, view10, view11, view12, view13, view14, view15 ,view16]:
+for v in [view1, view2, view3, view4, view5, view6, view7, view8, view9, view10, view11, view12, view13, view14, view15 ,view16 ,view17]:
     app.include_router(v.router)
