@@ -11,4 +11,3 @@ class Category(Base):
     uid = Column(String(36), ForeignKey(User.uid), nullable=False)
     col_name = Column(String(255), nullable=False, index=True)
     description = Column(String(255), nullable=True)
-    # input_time = Column(Integer) #作成日時を示す数値(13桁程度)をフロントで生成する想定
