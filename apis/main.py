@@ -25,9 +25,14 @@ from .routers.updatecardsposition import view as view18
 is_with_proxy = os.getenv("IS_WITH_PROXY")
 if is_with_proxy == "True":
     # コンテナ単体の.envでは宣言せず、ルートの.envだけで宣言すると正しく読み込まれる。
-    app = FastAPI(root_path="/fastapi", docs_url="/docs", redoc_url="/redoc")
+    app = FastAPI(
+        root_path="/fastapi",
+        docs_url="/docs",
+        redoc_url="/redoc",
+        openapi_url="/openapi.json",
+    )
 else:
-    app = FastAPI(docs_url="/docs", redoc_url="/redoc")
+    app = FastAPI(docs_url="/docs", redoc_url="/redoc", openapi_url="/openapi.json")
 
 
 # AWSなどにデプロイしURLのドメインが確定したら指定する。
@@ -62,5 +67,24 @@ async def shutdown_logic():
 
 app.router.lifespan_context = app_lifespan
 
-for v in [view1, view2, view3, view4, view5, view6, view7, view8, view9, view10, view11, view12, view13, view14, view15 ,view16 ,view17 ,view18]:
+for v in [
+    view1,
+    view2,
+    view3,
+    view4,
+    view5,
+    view6,
+    view7,
+    view8,
+    view9,
+    view10,
+    view11,
+    view12,
+    view13,
+    view14,
+    view15,
+    view16,
+    view17,
+    view18,
+]:
     app.include_router(v.router)
