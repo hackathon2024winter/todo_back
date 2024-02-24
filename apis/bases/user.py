@@ -10,5 +10,5 @@ class User(Base):
     # 新しいレコードが挿入される際に、lambdaで指定する関数の出力をデフォルト値として使う
     uid = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     email = Column(String(64), unique=True, nullable=False, index=True)
-    username = Column(String(64), nullable=False, index=True)
+    username = Column(String(64), nullable=True, index=True)
     password = Column(String(255), nullable=False)
