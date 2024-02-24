@@ -22,7 +22,7 @@ from .routers.getboarddetail import view as view16
 from .routers.delcard import view as view17
 from .routers.updatecardsposition import view as view18
 
-is_with_proxy = os.getenv("IS_WITH_PROXY")
+is_with_proxy = os.getenv("VITE_REACT_APP_IS_WITH_PROXY")
 if is_with_proxy == "True":
     # コンテナ単体の.envでは宣言せず、ルートの.envだけで宣言すると正しく読み込まれる。
     app = FastAPI(
