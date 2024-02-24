@@ -98,3 +98,8 @@ class UpdateCardsPosition:
     endpoint = "/updatecardsposition"
     summary = "カードの位置情報(card_pos,col_id)の更新"
     description = """ドラッグアンドドロップ等の後の、各カードのcard_posとcol_idを受け取り更新します"""
+
+class DelCategory:
+    endpoint = "/delcategory"
+    summary = "カテゴリの削除"
+    description = """カテゴリの削除"""
