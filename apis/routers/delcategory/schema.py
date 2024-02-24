@@ -25,6 +25,7 @@ class Response(BaseModel):
         description="正しい場合1、不正の場合0",
     )
     data: Optional[Data] = Field(None, title="削除したカテゴリの情報")
+    message: str = Field(..., title="挙動の説明")
 
 
 #必要に応じて後で作成
