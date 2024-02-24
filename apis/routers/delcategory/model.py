@@ -34,4 +34,4 @@ class Model(BaseModel):
         await database.execute(delete_query)
 
         dt = Data(col_id=body.col_id, col_name=result.col_name)
-        return Response(status=1, data=dt)
+        return Response(status=1, data=dt, message="カテゴリが削除されました。カテゴリに属するカードも同時に削除されました。")
