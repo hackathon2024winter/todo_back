@@ -14,23 +14,20 @@ class Model(BaseModel):
                 status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token"
             )
 
-        query = Card.__table__.select()
+        query = Card.__table__.select().where(Card.uid == token.uid)
         result = await database.fetch_all(query)
 
         arry = []  # dataリストを初期化
         for card in result:
-            # ここでisUserCreatedを設定する。
-            is_user_created = card.uid == token.uid
             dt = Data(
-                isUserCreated=is_user_created,
                 card_id=card.card_id,
-                card_pos = card.card_pos,
-                col_id = card.col_id,
-                card_name = card.card_name,
-                input_date = card.input_date,
-                due_date = card.due_date,
-                color = card.color,
-                description = card.description
+                card_pos=card.card_pos,
+                col_id=card.col_id,
+                card_name=card.card_name,
+                input_date=card.input_date,
+                due_date=card.due_date,
+                color=card.color,
+                description=card.description,
             )
             arry.append(dt)
         return Response(status=1, data=arry)

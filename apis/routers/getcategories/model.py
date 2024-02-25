@@ -14,19 +14,16 @@ class Model(BaseModel):
                 status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token"
             )
 
-        query = Category.__table__.select()
+        query = Category.__table__.select().where(Category.uid == token.uid)
         result = await database.fetch_all(query)
 
         arry = []  # dataリストを初期化
         for category in result:
-            # ここでisUserCreatedを設定する。
-            is_user_created = category.uid == token.uid
             dt = Data(
-                isUserCreated=is_user_created,
-                col_id = category.col_id,
-                col_pos = category.col_pos,
-                col_name = category.col_name,
-                description = category.description
+                col_id=category.col_id,
+                col_pos=category.col_pos,
+                col_name=category.col_name,
+                description=category.description,
             )
             arry.append(dt)
         return Response(status=1, data=arry)
