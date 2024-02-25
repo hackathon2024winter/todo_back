@@ -7,7 +7,7 @@ class TokenData(BaseModel):
     uid: str = Field(..., title="デコードされたtoken", description="cookieから取得したtoken一式")
 
 
-#カードテーブルの要素のうち以下をフロントから受け取る（いったんaddcardと同じものを残した）
+#カードテーブルの要素のうち以下をフロントから受け取る（addの場合と同じもの）
 class Request(BaseModel):
     card_id: str = Field(..., title="カードid", description="カードのID(ハッシュ値)")
     card_pos: int = Field(..., title="カードの位置", description="カテゴリ内でのカードの位置を示す番号")
@@ -31,7 +31,7 @@ RequestExample = {
 }
 
 
-#更新するだけで更新後のカード情報は返さないようにする？？
+#更新後のカード情報をそのまま返す
 class Data(BaseModel):
     card_id: str = Field(..., title="カードid", description="カードのID(ハッシュ値)")
     card_pos: int = Field(..., title="カードの位置", description="カテゴリ内でのカードの位置を示す番号")

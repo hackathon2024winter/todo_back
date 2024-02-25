@@ -22,6 +22,7 @@ from .routers.getboarddetail import view as view16
 from .routers.delcard import view as view17
 from .routers.updatecardsposition import view as view18
 from .routers.delcategory import view as view19
+from .routers.updatecategory import view as view20
 
 is_with_proxy = os.getenv("VITE_REACT_APP_IS_WITH_PROXY")
 if is_with_proxy == "True":
@@ -87,6 +88,7 @@ for v in [
     view16,
     view17,
     view18,
-    view19
+    view19,
+    view20
 ]:
     app.include_router(v.router)

@@ -2,7 +2,7 @@ from fastapi import status, HTTPException
 from pydantic import BaseModel
 from .schema import Request, Response, TokenData, Data
 from apis.services.authfunctions import database
-from apis.bases.card import Card    
+from apis.bases.category import Category
 
 
 class Model(BaseModel):
@@ -13,28 +13,21 @@ class Model(BaseModel):
                 status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token"
             )
 
-        # Cardテーブルの中で、受け取ったリクエスト中のcard_idと一致するレコードを更新するクエリ（idの更新は想定しない）
-        query = Card.__table__.update().where((Card.card_id == body.card_id)
+        # Categoryテーブルの中で、受け取ったリクエスト中のcategory_idと一致するレコードを更新するクエリ（idの更新は想定しない）
+        query = Category.__table__.update().where((Category.col_id == body.col_id)
         ).values(
-            card_pos=body.card_pos,
-            card_name=body.card_name,
-            input_date=body.input_date,
-            due_date=body.due_date,
-            color=body.color,
+            col_pos=body.col_pos,
+            col_name=body.col_name,
             description=body.description
         )
         # テーブル更新
         await database.execute(query)
 
         dt = Data(
-            card_id=body.card_id,
-            card_pos=body.card_pos,
             col_id=body.col_id,
+            col_pos=body.col_pos,
             # uid=token.uid,
-            card_name=body.card_name,
-            input_date=body.input_date,
-            due_date=body.due_date,
-            color=body.color,
+            col_name=body.col_name,
             description=body.description
         )
         return Response(status=1, data=dt)
