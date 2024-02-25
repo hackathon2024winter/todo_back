@@ -103,3 +103,8 @@ class DelCategory:
     endpoint = "/delcategory"
     summary = "カテゴリの削除"
     description = """カテゴリを削除します。カテゴリに属するカードがある場合は同時に削除されます。"""
+
+class UpdateCategory:
+    endpoint = "/updatecategory"
+    summary = "カテゴリ情報の編集"
+    description = """カテゴリ編集画面からの編集内容を反映します"""
