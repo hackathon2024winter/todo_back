@@ -6,23 +6,18 @@ from apis.services.authfunctions import database
 from .routers.signup import view as view1
 from .routers.login import view as view2
 from .routers.signout import view as view3
-from .routers.addchannel import view as view4
-from .routers.addmessage import view as view5
-from .routers.delmessage import view as view6
-from .routers.delchannel import view as view7
-from .routers.getchannels import view as view8
-from .routers.getmessages import view as view9
-from .routers.getcards import view as view10
-from .routers.getcategories import view as view11
-from .routers.addcard import view as view12
-from .routers.addcategory import view as view13
-from .routers.getboardview import view as view14
-from .routers.updatecard import view as view15
-from .routers.getboarddetail import view as view16
-from .routers.delcard import view as view17
-from .routers.updatecardsposition import view as view18
-from .routers.delcategory import view as view19
-from .routers.updatecategory import view as view20
+from .routers.getcards import view as view4
+from .routers.addcard import view as view5
+from .routers.updatecard import view as view6
+from .routers.delcard import view as view7
+from .routers.getcategories import view as view8
+from .routers.addcategory import view as view9
+from .routers.updatecategory import view as view10
+from .routers.delcategory import view as view11
+from .routers.updatecardsposition import view as view12
+# from .routers.getboardview import view as view13
+# from .routers.getboarddetail import view as view14
+
 
 is_with_proxy = os.getenv("VITE_REACT_APP_IS_WITH_PROXY")
 if is_with_proxy == "True":
@@ -82,13 +77,7 @@ for v in [
     view10,
     view11,
     view12,
-    view13,
-    view14,
-    view15,
-    view16,
-    view17,
-    view18,
-    view19,
-    view20
+    # view13,
+    # view14
 ]:
     app.include_router(v.router)
