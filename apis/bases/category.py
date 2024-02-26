@@ -7,8 +7,7 @@ class Category(Base):
     __tablename__ = "categories"  # テーブル名をcategoriesと指定 __tablename__はsqlalchemyの特別な変数
     __table_args__ = {"extend_existing": True}  # 既存テーブルの再定義を認める
     col_id = Column(String(36), primary_key=True)
-    col_pos = Column(Integer(unsigned=True))
+    col_pos = Column(Integer(unsigned=True), nullable=False)
     uid = Column(String(36), ForeignKey(User.uid), nullable=False)
     col_name = Column(String(255), nullable=False, index=True)
     description = Column(String(255), nullable=True)
-    # input_time = Column(Integer) #作成日時を示す数値(13桁程度)をフロントで生成する想定
