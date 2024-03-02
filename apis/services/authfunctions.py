@@ -30,7 +30,7 @@ def get_pwd_context():
 
 # ユーザーの新規登録の際、そのemailが登録済かどうかを確認。
 async def select_by_email(email: str):
-    query = select([User]).where(User.email == email)
+    query = select(User).where(User.email == email)
     result = await database.fetch_one(query)
     return result
 
@@ -99,13 +99,13 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
 
         if uid is None:
             raise credential_exception
-        
+
         # tokenのuidを取得
         token_data = TokenData(uid=uid)
 
     except JWTError:
         raise credential_exception
-    
+
     # uidに見合うuserをデータベースから取得
     user = await get_user_by_uid(uid=token_data.uid)
     if user is None:
@@ -115,6 +115,6 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
 
 # 登録されたuuidかどうかを確認。Refresh Tokenに使う。
 async def get_user_by_uid(uid: str):
-    query = select([User]).where(User.uid == uid)
+    query = select(User).where(User.uid == uid)
     result = await database.fetch_one(query)
     return result
