@@ -3,19 +3,24 @@ from typing import Optional
 
 
 class TokenData(BaseModel):
-    data: str = Field(..., title="デコードされたtoken", description="cookieから取得したtoken一式")
+    data: str = Field(
+        ..., title="デコードされたtoken", description="cookieから取得したtoken一式"
+    )
 
 
 class Request(BaseModel):
     col_id: str = Field(..., title="カテゴリid", description="カテゴリのID(ハッシュ値)")
 
-#fugaさんの「完了」カテゴリを削除
-RequestExample = {"col_id": "7d2fc6b5-58be-6257-2b40-b0b848062c07"}
+
+# fugaさんの「完了」カテゴリを削除
+RequestExample = {"col_id": "category-7414208f-560c-4641-8d08-f7e"}
 
 
 class Data(BaseModel):
     col_id: str = Field(..., title="カテゴリid", description="カテゴリのID(ハッシュ値)")
-    col_name: str = Field(..., title="カテゴリ名", description="カテゴリの名前(タスク名)")
+    col_name: str = Field(
+        ..., title="カテゴリ名", description="カテゴリの名前(タスク名)"
+    )
 
 
 class Response(BaseModel):
@@ -28,5 +33,5 @@ class Response(BaseModel):
     message: str = Field(..., title="挙動の説明")
 
 
-#必要に応じて後で作成
+# 必要に応じて後で作成
 ResponseExamples = {}
