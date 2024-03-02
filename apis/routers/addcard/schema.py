@@ -4,13 +4,17 @@ from datetime import date
 
 
 class TokenData(BaseModel):
-    uid: str = Field(..., title="デコードされたtoken", description="cookieから取得したtoken一式")
+    uid: str = Field(
+        ..., title="デコードされたtoken", description="cookieから取得したtoken一式"
+    )
 
 
-#カードテーブルの要素のうち以下をフロントから受け取る（uidはtokenからログイン中のユーザーidを取得）
+# カードテーブルの要素のうち以下をフロントから受け取る（uidはtokenからログイン中のユーザーidを取得）
 class Request(BaseModel):
     card_id: str = Field(..., title="カードid", description="カードのID(ハッシュ値)")
-    card_pos: int = Field(..., title="カードの位置", description="カテゴリ内でのカードの位置を示す番号")
+    card_pos: int = Field(
+        ..., title="カードの位置", description="カテゴリ内でのカードの位置を示す番号"
+    )
     col_id: str = Field(..., title="カテゴリid", description="カテゴリのID(ハッシュ値)")
     card_name: str = Field(..., title="カード名", description="カードの名前(タスク名)")
     input_date: date = Field(..., title="作成日", description="カードの作成日")
@@ -20,21 +24,23 @@ class Request(BaseModel):
 
 
 RequestExample = {
-    "card_id": "61eae2b5-d109-a5e3-7a38-01970911cc12",
+    "card_id": "card-b2c04f39-66d7-4eaf-af36-d52a234",
     "card_pos": 1,
-    "col_id": "7d2fc6b5-58be-6257-2b40-b0b848062a07",
+    "col_id": "category-734c5844-7cba-4c51-8d0c-983",
     "card_name": "中間発表資料を作成する",
     "input_date": "2024-02-01",
     "due_date": "2024-02-19",
-    "color": "#e2b49a",
-    "description": "Canvaで編集する"
+    "color": "blue",
+    "description": "Canvaで編集する",
 }
 
 
-#作成したカードの情報（カードテーブルの要素の全て）を返す
+# 作成したカードの情報（カードテーブルの要素の全て）を返す
 class Data(BaseModel):
     card_id: str = Field(..., title="カードid", description="カードのID(ハッシュ値)")
-    card_pos: int = Field(..., title="カードの位置", description="カテゴリ内でのカードの位置を示す番号")
+    card_pos: int = Field(
+        ..., title="カードの位置", description="カテゴリ内でのカードの位置を示す番号"
+    )
     col_id: str = Field(..., title="カテゴリid", description="カテゴリのID(ハッシュ値)")
     uid: str = Field(..., title="ユーザーid", description="カードの作成者のID")
     card_name: str = Field(..., title="カード名", description="カードの名前(タスク名)")
@@ -53,5 +59,5 @@ class Response(BaseModel):
     data: Optional[Data] = Field(None, title="作成したカードの情報")
 
 
-#必要に応じて後で作成
+# 必要に応じて後で作成
 ResponseExamples = {}
